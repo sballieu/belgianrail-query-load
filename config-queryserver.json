@@ -1,5 +1,5 @@
 {
   "type" : "query-server",
-  "url" : "http://localhost:8082",
-  "serverPID" : 19912
+  "url" : "http://localhost:8081",
+  "serverPID" : 3773
 }
