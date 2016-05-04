@@ -27,22 +27,12 @@ cache_qs="/home/sander/git/testing/query-server-nginx/"
 cache_lc_normal="/home/sander/git/testing/server-normal-nginx/"
 cache_lc_filter="/home/sander/git/testing/server-filter-nginx/"
 
-rm -r results;
-mkdir results;
-
 q00="query-mixes/test.jsonstream";
 
-#sudo ./bin/query-server.sh $3 $cache_qs $q00 "0.5";
-sudo ./bin/normal-server.sh $1 $cache_lc_normal $q00 "0.5"
-
-#sudo $cache_qs"start.sh" &
-#sleep 5;
-#sort -n -t: -k2 $q00 | ./bin/runner.js -c $qs > results/experiment-test-qs.csv &
-#pidstat -p $! 10 1 >> client_cpu.log &
-#pidstat -p $2 10 1| grep Gemiddeld >> server_cpu.log &
-#pidstat -p $(cat $cache_qs"logs/nginx.pid") 10 1| grep Gemiddeld >> nginx_cpu.log;
-#sudo kill $(pidof nginx)
-
+## Launch Experiment 0.5
+sudo ./bin/normal-server.sh $1 $cache_lc_normal $q0 "0.5"
+sudo ./bin/filter-server.sh $2 $cache_lc_filter $q0 "0.5"
+sudo ./bin/query-server.sh $3 $cache_qs $q0 "0.5";
 
 ## Launch Experiment 0.5
 #sort -n -t: -k2 $q0 | ./bin/runner.js -c $lc > results/experiment-0_5-lc.csv &

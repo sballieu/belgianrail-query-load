@@ -15,5 +15,5 @@ sort -n -t: -k2 $3 | ./bin/runner.js -c $qs > "results/experiment-qs"$4".csv" &
 pidstat -p $1 895 1| grep Gemiddeld >> qs_server_cpu.log &
 pidstat $(pidof nginx | sed 's/ / -p /g' | sed 's/^/-p /') 895 1 | grep Gemiddeld >> qs_nginx_cpu.log;
 echo "----"  >> qs_nginx_cpu.log;
-sleep 300
+sleep 600
 sudo kill $(pidof nginx);
