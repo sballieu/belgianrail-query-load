@@ -5,7 +5,7 @@ var ExecuteQueryMixTransform = require('../lib/ExecuteQueryMixTransform'),
     path = require('path'),
     fs = require('fs'),
     program = require('commander');
-console.error("Execute query mixes use --help to discover more functions");
+//console.error("Execute query mixes use --help to discover more functions");
 
 var q;
 

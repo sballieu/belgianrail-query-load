@@ -1,10 +1,8 @@
 #!/bin/bash
-[[ $1 ]] || { echo "Give the lc server's pid as a first argument"; exit; };
-[[ $2 ]] || { echo "Give the queryserver's pid as the second argument"; exit; };
+[[ $1 ]] || { echo "Give the lc normal server's pid as a first argument"; exit; };
+[[ $2 ]] || { echo "Give the lc filter server's pid as a second argument"; exit; };
+[[ $3 ]] || { echo "Give the queryserver's pid as the third argument"; exit; };
 # Script to load the benchmark that will run for 4.5h (6 query mixes, 3 set-ups, 15 minutes each) 
-
-lc=config-lc-cache.json
-lcnc=config-lc-nocache.json
 
 q0="query-mixes/round0.jsonstream"
 q1="query-mixes/round1.jsonstream"
@@ -26,7 +24,7 @@ q16="$q15 query-mixes/round16.jsonstream"
 q17="$q16 query-mixes/round17.jsonstream"
 
 cache_qs="/home/sander/git/testing/query-server-nginx/"
-cache_lc="/home/sander/git/testing/server-normal-nginx/"
+cache_lc_normal="/home/sander/git/testing/server-normal-nginx/"
 cache_lc_filter="/home/sander/git/testing/server-filter-nginx/"
 
 rm -r results;
@@ -34,7 +32,8 @@ mkdir results;
 
 q00="query-mixes/test.jsonstream";
 
-sudo ./bin/query-server.sh $2 $cache_qs $q0 "0.5";
+#sudo ./bin/query-server.sh $3 $cache_qs $q00 "0.5";
+sudo ./bin/normal-server.sh $1 $cache_lc_normal $q00 "0.5"
 
 #sudo $cache_qs"start.sh" &
 #sleep 5;

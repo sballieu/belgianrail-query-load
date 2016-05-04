@@ -1,0 +1,6 @@
+{
+  "type" : "lc",
+  "url" : "http://localhost:8071/connections",
+  "enableCache" : true,
+  "serverPID" : 21884
+}

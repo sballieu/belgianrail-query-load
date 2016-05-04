@@ -1,5 +1,5 @@
 {
-  "type" : "lc",
+  "type" : "lc-filter",
   "url" : "http://localhost:8081",
   "enableCache" : false
 }

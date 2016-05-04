@@ -17,4 +17,3 @@ pidstat $(pidof nginx | sed 's/ / -p /g' | sed 's/^/-p /') 895 1 | grep Gemiddel
 echo "----"  >> qs_nginx_cpu.log;
 sleep 300
 sudo kill $(pidof nginx);
-rm temp.jsonstream
